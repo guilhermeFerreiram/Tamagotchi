@@ -1,18 +1,6 @@
 ﻿using RestSharp;
 using Newtonsoft.Json;
-public class PokemonList
-{
-    public int Count { get; set; }
-    public string Next { get; set; }
-    public string Previous { get; set; }
-    public List<PokemonResult> Results { get; set; }
-}
-
-public class PokemonResult
-{
-    public string Name { get; set; }
-    public string Url { get; set; }
-}
+using Tamagotchi;
 
 class Program
 {
@@ -27,14 +15,41 @@ class Program
         {
             PokemonList pokemonList = JsonConvert.DeserializeObject<PokemonList>(response.Content);
 
-            foreach (var pokemonResult in pokemonList.Results)
+            Console.WriteLine("=== Escolha seu Tamagochi! ===\n");
+
+            for (int i = 0; i < pokemonList.Results.Count; i++)
             {
-                Console.WriteLine($"Nome: {pokemonResult.Name}");
+                Console.WriteLine($"--> [{i + 1}] {pokemonList.Results[i].Name}");
+            }
+
+            Console.WriteLine("");
+            Console.Write("Escolha: ");
+            int escolha = int.Parse(Console.ReadLine()!);
+
+            Console.Clear();
+
+            client = new RestClient($"https://pokeapi.co/api/v2/pokemon/{escolha}");
+            request = new RestRequest("", Method.Get);
+            response = client.Execute(request);
+
+            PokemonDetails pokemonDetails = JsonConvert.DeserializeObject<PokemonDetails>(response.Content);
+
+            Console.WriteLine($"=== {pokemonDetails.Name} ===\n");
+
+            Console.WriteLine($"--> Altura: {pokemonDetails.Height}");
+            Console.WriteLine($"--> Peso: {pokemonDetails.Weight}");
+            Console.WriteLine("--> Habilidades:");
+
+            foreach (var pokemonAbility in pokemonDetails.Abilities)
+            {
+                Console.WriteLine($"- {pokemonAbility.Ability.Name}");
             }
         }
         else
         {
-            Console.WriteLine($"Erro na requisição. Código de status: {response.StatusCode}");
+            Console.WriteLine($"Erro na requisição. Código de status: {response.StatusCode};");
         }
+
+
     }
 }
