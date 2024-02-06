@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace Tamagotchi
+﻿namespace Tamagotchi.Modelos
 {
     public class PokemonList
     {
