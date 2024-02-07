@@ -1,4 +1,4 @@
-﻿namespace Tamagotchi.Modelos
+﻿namespace Tamagotchi.Models
 {
     public class PokemonAbility
     {

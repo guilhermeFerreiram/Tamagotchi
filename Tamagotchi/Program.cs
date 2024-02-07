@@ -1,22 +1,11 @@
-﻿using Tamagotchi.Menus;
+﻿using Tamagotchi.Controller;
+using Tamagotchi.View;
 
 class Program
 {
     static void Main()
     {
-        Console.WriteLine(@"
-        
-████████╗░█████╗░███╗░░░███╗░█████╗░░██████╗░░█████╗░░█████╗░██╗░░██╗██╗
-╚══██╔══╝██╔══██╗████╗░████║██╔══██╗██╔════╝░██╔══██╗██╔══██╗██║░░██║██║
-░░░██║░░░███████║██╔████╔██║███████║██║░░██╗░██║░░██║██║░░╚═╝███████║██║
-░░░██║░░░██╔══██║██║╚██╔╝██║██╔══██║██║░░╚██╗██║░░██║██║░░██╗██╔══██║██║
-░░░██║░░░██║░░██║██║░╚═╝░██║██║░░██║╚██████╔╝╚█████╔╝╚█████╔╝██║░░██║██║
-░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝░╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝╚═╝
-        ");
-        Console.Write("Seja bem vindo(a)! Qual seu nome?: ");
-        string nomeUsuario = Console.ReadLine()!;
-
-        Menu menuInicial = new MenuInicial();
-        menuInicial.Executar(nomeUsuario);
+        TamagochiController tamagochiController = new();
+        tamagochiController.Jogar();
     }
 }

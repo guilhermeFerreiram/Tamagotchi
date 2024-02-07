@@ -1,6 +1,6 @@
-﻿namespace Tamagotchi.Modelos
+﻿namespace Tamagotchi.Models
 {
-    public class Ability
+    public class PokemonResult
     {
         public string Name { get; set; }
         public string Url { get; set; }
