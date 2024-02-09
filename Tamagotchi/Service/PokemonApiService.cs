@@ -18,9 +18,9 @@ namespace Tamagotchi.Service
             return pokemonList;
         }
 
-        public PokemonDetails ObterDestalhesDaEspecie(int index)
+        public PokemonDetails ObterDestalhesDaEspecie(int indice)
         {
-            string apiUrl = $"https://pokeapi.co/api/v2/pokemon/{index}";
+            string apiUrl = $"https://pokeapi.co/api/v2/pokemon/{indice}";
             var client = new RestClient(apiUrl);
             var request = new RestRequest("", Method.Get);
             var response = client.Execute(request);

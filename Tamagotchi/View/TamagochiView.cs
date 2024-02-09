@@ -49,73 +49,54 @@ namespace Tamagotchi.View
         {
             Console.Clear();
             ExibirTituloMenu("MENU");
-            Console.WriteLine("Você deseja:\n");
+
             Console.WriteLine("1 - Adotar um mascote virtual");
             Console.WriteLine("2 - Ver seus mascotes");
             Console.WriteLine("3 - Sair\n");
         }
-
-        public void ExibirEspecies()
+        
+        public void ExibirEspecies(PokemonList especies)
         {
             Console.WriteLine("Estes são os mascotes disponíveis:\n");
-            PokemonApiService pokemonApi = new PokemonApiService();
-            var pokemonList = pokemonApi.ObterEspecies();
 
-            for (int i = 0; i < pokemonList.Results.Count; i++)
+            for (int i = 0; i < especies.Results.Count; i++)
             {
-                Console.WriteLine($"--> [{i + 1}] {pokemonList.Results[i].Name}");
+                Console.WriteLine($"--> [{i + 1}] {especies.Results[i].Name}");
             }
+            Console.WriteLine("");
         }
 
         public void ExibirMenuDeAdocao()
         {
-            Console.Clear();
             ExibirTituloMenu("ADOTE UM MASCOTE");
-            Console.WriteLine("");
-            ExibirEspecies();
-            Console.WriteLine("");
 
-            Console.WriteLine("1 - Exibir Detalhes de uma espécie");
-            Console.WriteLine("2 - Adotar um pokémon");
-            Console.WriteLine("3 - Voltar\n");
+            Console.WriteLine("1 - Adotar um Pokémon");
+            Console.WriteLine("2 - Sair");
         }
 
-        public void ExibirDetalhesDeUmaEspecie()
+        public void ExibirDetalhesDeUmaEspecie(PokemonDetails pokemon)
         {
-            Console.Write("Digite o número do Pokémon: ");
-            int index = int.Parse(Console.ReadLine()!);
-
             Console.Clear();
 
-            PokemonApiService pokemonApi = new PokemonApiService();
-            var pokemonDetails = pokemonApi.ObterDestalhesDaEspecie(index);
+            ExibirTituloMenu(pokemon.Name.ToUpper());
 
-            ExibirTituloMenu(pokemonDetails.Name.ToUpper());
-
-            Console.WriteLine($"Altura: {pokemonDetails.Height}");
-            Console.WriteLine($"Peso: {pokemonDetails.Weight}");
+            Console.WriteLine($"Altura: {pokemon.Height}");
+            Console.WriteLine($"Peso: {pokemon.Weight}");
             Console.WriteLine("Habilidades:");
 
-            foreach (var pokemonAbility in pokemonDetails.Abilities)
+            foreach (var pokemonAbility in pokemon.Abilities)
             {
                 Console.Write($"{pokemonAbility.Ability.Name.ToUpper()} ");
             }
-
-            Console.WriteLine("\n\nPressione qualquer tecla para voltar...");
-            Console.ReadKey();
+            Console.WriteLine("");
+            Console.WriteLine("");
         }
 
-        public PokemonDetails ExibirMenuAdotar()
+        public bool ConfirmarAdocao()
         {
-            Console.Write("Digite o número do Pokémon: ");
-            int index = int.Parse(Console.ReadLine()!);
-
-            Console.Clear();
-
-            PokemonApiService pokemonApi = new PokemonApiService();
-            var pokemonDetails = pokemonApi.ObterDestalhesDaEspecie(index);
-
-            return pokemonDetails;
+            Console.Write("Você gostaria de adotar este mascote? (s/n): ");
+            string resposta = Console.ReadLine();
+            return resposta.ToLower() == "s";
         }
 
         public void ExibirMascotesAdotados(List<PokemonDetails> pokemonList)
