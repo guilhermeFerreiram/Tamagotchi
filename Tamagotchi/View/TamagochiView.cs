@@ -51,7 +51,7 @@ namespace Tamagotchi.View
             ExibirTituloMenu("MENU");
 
             Console.WriteLine("1 - Adotar um mascote virtual");
-            Console.WriteLine("2 - Ver seus mascotes");
+            Console.WriteLine("2 - Ver meu mascote");
             Console.WriteLine("3 - Sair\n");
         }
         
@@ -72,6 +72,7 @@ namespace Tamagotchi.View
 
             Console.WriteLine("1 - Adotar um Pokémon");
             Console.WriteLine("2 - Sair");
+            Console.WriteLine("");
         }
 
         public void ExibirDetalhesDeUmaEspecie(PokemonDetails pokemon)
@@ -99,26 +100,74 @@ namespace Tamagotchi.View
             return resposta.ToLower() == "s";
         }
 
-        public void ExibirMascotesAdotados(List<PokemonDetails> pokemonList)
+        public void ExibirMascoteAdotado(PokemonDetails pokemon)
         {
             Console.Clear();
 
-            foreach (var pokemon in pokemonList)
+            ExibirTituloMenu(pokemon.Name.ToUpper());
+
+            Console.WriteLine($"Altura: {pokemon.Height}");
+            Console.WriteLine($"Peso: {pokemon.Weight}");
+            Console.WriteLine("Habilidades:");
+
+            foreach (var pokemonAbility in pokemon.Abilities)
             {
-                ExibirTituloMenu(pokemon.Name.ToUpper());
-
-                Console.WriteLine($"Altura: {pokemon.Height}");
-                Console.WriteLine($"Peso: {pokemon.Weight}");
-                Console.WriteLine("Habilidades:");
-
-                foreach (var pokemonAbility in pokemon.Abilities)
-                {
-                    Console.Write($"{pokemonAbility.Ability.Name.ToUpper()} ");
-                }
-                Console.WriteLine("");
+                Console.Write($"{pokemonAbility.Ability.Name.ToUpper()} ");
             }
-            Console.WriteLine("\nPressione qualquer tecla para voltar...");
-            Console.ReadKey();
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+            Console.WriteLine($"Fome: {pokemon.Fome}");
+            if (pokemon.Fome <= 5)
+            {
+                Console.WriteLine($"{pokemon.Name} está com muita fome!");
+            }
+            else if (pokemon.Fome > 5 && pokemon.Fome <= 8)
+            {
+                Console.WriteLine($"{pokemon.Name} está ficando com fome!");
+            }
+            else
+            {
+                Console.WriteLine($"{pokemon.Name} está sem fome!");
+            }
+
+            Console.WriteLine($"Humor: {pokemon.Humor}");
+            if (pokemon.Humor <= 5)
+            {
+                Console.WriteLine($"{pokemon.Name} está muito triste!");
+            }
+            else if (pokemon.Fome > 5 && pokemon.Humor <= 8)
+            {
+                Console.WriteLine($"{pokemon.Name} está pouco feliz!");
+            }
+            else
+            {
+                Console.WriteLine($"{pokemon.Name} está muito feliz!");
+            }
+
+            Console.WriteLine($"Sono: {pokemon.Sono}");
+            if (pokemon.Sono <= 5)
+            {
+                Console.WriteLine($"{pokemon.Name} está com muito sono!");
+            }
+            else if (pokemon.Fome > 5 && pokemon.Sono <= 8)
+            {
+                Console.WriteLine($"{pokemon.Name} está ficando com sono!");
+            }
+            else
+            {
+                Console.WriteLine($"{pokemon.Name} está bem disposto!");
+            }
+            Console.WriteLine("");
+        }
+
+        public void MenuCuidarDoMeuMascote(PokemonDetails pokemon)
+        {
+            Console.WriteLine($"1 - Alimentar {pokemon.Name.ToUpper()}");
+            Console.WriteLine($"2 - Brincar com {pokemon.Name.ToUpper()}");
+            Console.WriteLine($"3 - Colocar {pokemon.Name.ToUpper()} para dormir");
+            Console.WriteLine("4 - Voltar");
+            Console.WriteLine("");
         }
 
         public void ExibirMenuSair()
