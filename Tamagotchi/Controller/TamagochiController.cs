@@ -72,6 +72,9 @@ namespace Tamagotchi.Controller
                                     break;
                                 case 2:
                                     break;
+                                default:
+                                    Menu.ExibirMensagemOpcaoInvalida();
+                                    break;
                             }
                             if (escolha == 2)
                             {
@@ -112,6 +115,9 @@ namespace Tamagotchi.Controller
                                     break;
                                 case 4:
                                     break;
+                                default:
+                                    Menu.ExibirMensagemOpcaoInvalida();
+                                    break;
                             }
                             if (escolha == 4)
                             {
@@ -123,6 +129,7 @@ namespace Tamagotchi.Controller
                         Menu.ExibirMenuSair();
                         break;
                     default:
+                        Menu.ExibirMensagemOpcaoInvalida();
                         break;
                 }
                 if (escolha == 3)

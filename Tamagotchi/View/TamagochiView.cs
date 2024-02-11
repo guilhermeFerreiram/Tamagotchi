@@ -21,7 +21,8 @@ namespace Tamagotchi.View
         public int ObterEscolhaDoUsuario()
         {
             Console.Write("Escolha: ");
-            int escolha = int.Parse(Console.ReadLine()!);
+            int escolha = int.Parse(Console.ReadLine());
+
             return escolha;
         }
 
@@ -97,7 +98,20 @@ namespace Tamagotchi.View
         {
             Console.Write("Você gostaria de adotar este mascote? (s/n): ");
             string resposta = Console.ReadLine();
-            return resposta.ToLower() == "s";
+
+            if (resposta.ToLower() == "s")
+            {
+                return true;
+            }
+            else if (resposta.ToLower() == "n")
+            {
+                return false;
+            }
+            else
+            {
+                ExibirMensagemOpcaoInvalida();
+                return false;
+            }
         }
 
         public void ExibirMascoteAdotado(PokemonDetails pokemon)
@@ -174,6 +188,12 @@ namespace Tamagotchi.View
         {
             Console.Clear();
             Console.WriteLine("Até a próxima!...");
+        }
+
+        public void ExibirMensagemOpcaoInvalida()
+        {
+            Console.WriteLine("Opção inválida, pressione qualquer tecla para tentar novamente");
+            Console.ReadKey();
         }
     }
 }
