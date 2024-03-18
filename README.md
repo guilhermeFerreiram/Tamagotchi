@@ -1,7 +1,7 @@
 # <h1 align="center">TAMAGOCHI</h1>
 
 <p align="center">
-  <a href="https://github.com/guilhermeFerreiram/CSharpIntroducao/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/guilhermeFerreiram/Ingresso-Online?Color=323330&style=for-the-badge"/></a>  
+  <a href="https://github.com/guilhermeFerreiram/Tamagotchi/blob/master/LICENSE.txt"><img src="https://img.shields.io/github/license/guilhermeFerreiram/Tamagotchi?Color=323330&style=for-the-badge"/></a>  
   <img src="https://img.shields.io/static/v1?label=Visual+Studio&message=community+2022&color=5C2D91&style=for-the-badge&logo=VisualStudio"/> 
 </p>
 
@@ -38,5 +38,5 @@
 <br>
 <h2 align="center" id="license">:page_with_curl: Licença</h2>
 
-<p align="center"><a href="https://github.com/guilhermeFerreiram/CSharpIntroducao/blob/master/LICENSE">MIT License</a> &nbsp;&bull;&nbsp; &copy; guilhermeFerreiram</p>
+<p align="center"><a href="https://github.com/guilhermeFerreiram/Tamagotchi/blob/master/LICENSE.txt">MIT License</a> &nbsp;&bull;&nbsp; &copy; guilhermeFerreiram</p>
  
