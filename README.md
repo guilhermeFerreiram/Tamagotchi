@@ -20,6 +20,13 @@
 
 <p align="center">Reviva a nostalgia do Tamagotchi com este desafio de 7 dias em C# que utiliza a API do Pokémon para trazer seus mascotes favoritos à vida e permitir interações via API e JSON. Esta é uma versão do Tamagotchi, o famoso "bichinho virtual" dos anos 90 e 2000, usando os conceitos mais importantes do C# e consumindo a API do Pokémon. O objetivo deste projeto é ensinar iniciantes a consumir uma API REST de forma simplificada.</p>
 
+<div align="center">
+    <img src="https://github.com/guilhermeFerreiram/Tamagotchi/assets/153195124/3db8c60b-9ae8-414c-bb92-f5ac0ae9e3b5" alt="ListaDePokemons" />
+    <br><br>
+    <img src="https://github.com/guilhermeFerreiram/Tamagotchi/assets/153195124/70c611cb-f530-4c00-ac6d-830cb28949f2" alt="TelaPokemonAdotado" />
+</div>
+
+
 <br>
 <h2 id="techs" align="center">:pushpin: Tecnologias</h2>
 
